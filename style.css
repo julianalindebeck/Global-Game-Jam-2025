@@ -13,6 +13,15 @@ main{
     display: grid;
     place-content: center;
     position: absolute;
+}
+
+#a{
+    top: 50px;
+    left: 60px;
+}
+
+#b{
     top: 100px;
     left: 30px;
 }
+
