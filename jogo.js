@@ -1,5 +1,14 @@
 const canhao = document.querySelector("#c");
 const bolhas = document.querySelectorAll(".bolha");
+
+for (let i = 0; i < bolhas.length; i++) {
+  const bolha = bolhas[i];
+  let top = -120 + Math.floor(80 * Math.random());
+  let left = Math.floor(440 * Math.random());
+  bolha.style.left = `${left}px`;
+  bolha.style.top = `${top}px`;
+}
+
 let angulo = 0;
 canhao.style.transform = `rotate(${angulo}deg)`;
 
@@ -33,19 +42,14 @@ window.setInterval(passo, 1000);
 function passo() {
   for (let i = 0; i < bolhas.length; i++) {
     const bolha = bolhas[i];
-    let top = bolha.style.top;
-    let left = 0;
-    if (top) {
-        
-        top = parseInt(bolha.style.top);
-        top = top + 20;
-    } else {
-        top = 0;
-        left = Math.floor(440 * Math.random());
-        bolha.style.left = `${left}px`;
-    }
+    let top = parseInt(bolha.style.top);
+    top = top + 20;
     bolha.style.top = `${top}px`;
+    if (top > 340) {
+      let top = -120 + Math.floor(80 * Math.random());
+      let left = Math.floor(440 * Math.random());
+      bolha.style.left = `${left}px`;
+      bolha.style.top = `${top}px`;
+    }
   }
 }
-
-  
