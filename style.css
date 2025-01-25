@@ -1,5 +1,5 @@
 main {
-  background-color: aquamarine;
+  background-color: rgb(212, 238, 255);
   width: 480px;
   height: 320px;
   position: relative;
@@ -30,7 +30,7 @@ main {
 }
 
 .canhao {
-  background: radial-gradient(hsl(24, 78%, 57%), hsl(24, 78%, 45%));
+  background: radial-gradient(hsl(24, 85%, 61%), hsl(24, 78%, 45%));
   width: 20px;
   height: 45px;
   display: grid;
@@ -41,4 +41,15 @@ main {
   border-radius: 30% 30% 00% 0%;
   transform: rotate(45deg);
   transform-origin: 50% 100%;
+}
+
+.base {
+    background: radial-gradient(hsl(24, 59%, 48%), hsl(24, 78%, 45%));
+  width: 50px;
+  height: 20px;
+  display: grid;
+  place-content: center;
+  position: absolute;
+  bottom: 1px;
+  left: calc(480px / 2 - 50px / 2);
 }
