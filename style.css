@@ -2,6 +2,7 @@ main{
     background-color: aquamarine;
     width: 480px;
     height: 320px;
+    position: relative;
 }
 
 .bolha{
@@ -11,4 +12,7 @@ main{
     border-radius: 50%;
     display: grid;
     place-content: center;
+    position: absolute;
+    top: 100px;
+    left: 30px;
 }
