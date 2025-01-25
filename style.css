@@ -1,41 +1,44 @@
-main{
-    background-color: aquamarine;
-    width: 480px;
-    height: 320px;
-    position: relative;
-    overflow: hidden;
+main {
+  background-color: aquamarine;
+  width: 480px;
+  height: 320px;
+  position: relative;
+  overflow: hidden;
 }
 
-.bolha{
-    background: radial-gradient(hsla(0, 0%, 100%, 30%), hsla(240, 100%, 70%, 60%));
-    width: 40px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    display: grid;
-    place-content: center;
-    position: absolute;
+.bolha {
+  background: radial-gradient(
+    hsla(0, 0%, 100%, 30%),
+    hsla(240, 100%, 70%, 60%)
+  );
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  position: absolute;
 }
 
-#a{
-    top: 50px;
-    left: 60px;
+#a {
+  top: 50px;
+  left: 60px;
 }
 
-#b{
-    top: 100px;
-    left: 30px;
+#b {
+  top: 100px;
+  left: 30px;
 }
 
-.canhao{
-    background: radial-gradient(hsl(24, 78%, 57%), hsl(24, 78%, 45%));
-    width: 20px;
-    height: 45px;
-    display: grid;
-    place-content: center;
-    position: absolute;
-    bottom: 10px;
-    left: calc( 480px/2 - 20px/2 );
-    border-radius: 30% 30% 00% 0%;
-    transform: rotate(45deg);
-    transform-origin: 50% 100%;
+.canhao {
+  background: radial-gradient(hsl(24, 78%, 57%), hsl(24, 78%, 45%));
+  width: 20px;
+  height: 45px;
+  display: grid;
+  place-content: center;
+  position: absolute;
+  bottom: 10px;
+  left: calc(480px / 2 - 20px / 2);
+  border-radius: 30% 30% 00% 0%;
+  transform: rotate(45deg);
+  transform-origin: 50% 100%;
 }
