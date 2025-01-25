@@ -3,3 +3,12 @@ main{
     width: 480px;
     height: 320px;
 }
+
+.bolha{
+    background: radial-gradient(hsla(0, 0%, 100%, 30%), hsla(240, 100%, 70%, 60%));
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
