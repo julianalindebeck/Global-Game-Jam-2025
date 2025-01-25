@@ -97,9 +97,9 @@ function passo() {
 function verificaColisoes() {
   for (let i = 0; i < bolhas.length; i++) {
     const bolha = bolhas[i];
-    if(colidiu(bolha, tiro)){
-        bolha.style.top = "350px";
-        tiro.style.top = "350px";
+    if (colidiu(bolha, tiro)) {
+      bolha.style.top = "350px";
+      tiro.style.top = "350px";
     }
   }
 }

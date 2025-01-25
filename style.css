@@ -19,8 +19,6 @@ main {
   position: absolute;
 }
 
-
-
 .tiro {
   background: radial-gradient(hsl(0, 50%, 51%), hsl(0, 66%, 57%));
   background-image: url("./dodo.png");
