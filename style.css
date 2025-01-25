@@ -21,7 +21,7 @@ main {
 
 
 
-.bola {
+.tiro {
   background: radial-gradient(hsl(0, 50%, 51%), hsl(0, 66%, 57%));
   width: 15px;
   aspect-ratio: 1;
@@ -29,7 +29,7 @@ main {
   display: grid;
   place-content: center;
   position: absolute;
-  bottom: 70px;
+  top: 70px;
   left: calc(480px / 2 - 15px / 2);
 }
 
