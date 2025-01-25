@@ -29,6 +29,21 @@ main {
   left: 30px;
 }
 
+.bola {
+    background: radial-gradient(
+        hsl(0, 50%, 51%),
+        hsl(0, 66%, 57%)
+      );
+      width: 15px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-content: center;
+      position: absolute;
+      bottom: 100px;
+      left: calc(480px / 2 - 15px / 2);
+}
+
 .canhao {
   background: radial-gradient(hsl(24, 85%, 61%), hsl(24, 78%, 45%));
   width: 20px;
@@ -53,3 +68,4 @@ main {
   bottom: 1px;
   left: calc(480px / 2 - 50px / 2);
 }
+
