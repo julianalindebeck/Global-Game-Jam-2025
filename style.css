@@ -30,18 +30,15 @@ main {
 }
 
 .bola {
-    background: radial-gradient(
-        hsl(0, 50%, 51%),
-        hsl(0, 66%, 57%)
-      );
-      width: 15px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      display: grid;
-      place-content: center;
-      position: absolute;
-      bottom: 70px;
-      left: calc(480px / 2 - 15px / 2);
+  background: radial-gradient(hsl(0, 50%, 51%), hsl(0, 66%, 57%));
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  position: absolute;
+  bottom: 70px;
+  left: calc(480px / 2 - 15px / 2);
 }
 
 .canhao {
@@ -59,7 +56,7 @@ main {
 }
 
 .base {
-    background: radial-gradient(hsl(24, 59%, 48%), hsl(24, 78%, 45%));
+  background: radial-gradient(hsl(24, 59%, 48%), hsl(24, 78%, 45%));
   width: 50px;
   height: 20px;
   display: grid;
@@ -78,4 +75,3 @@ main {
   top: 10px;
   left: calc(480px / 2 - 50px / 2);
 }
-
