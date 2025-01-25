@@ -4,6 +4,7 @@ const bolhas = document.querySelectorAll(".bolha");
 
 //inicia elemento
 const dt = 16/1000;
+let vAngulo = 0;
 let angulo = -90;
 const vTiro = 100;
 tiro.style.top = "305px";
@@ -23,15 +24,15 @@ for (let i = 0; i < bolhas.length; i++) {
 canhao.style.transform = `rotate(${angulo+90}deg)`;
 debugger
 document.addEventListener("keydown", quandoTeclaPressionada);
+document.addEventListener("keyup", quandoTeclaSolta);
+
 
 function giraHorario() {
-  angulo = angulo + 20;
-  canhao.style.transform = `rotate(${angulo+90}deg)`;
+  vAngulo = 20;
 }
 
 function giraAntiHorario() {
-  angulo = angulo - 20;
-  canhao.style.transform = `rotate(${angulo+90}deg)`;
+  vAngulo = -20;
 }
 
 function quandoTeclaPressionada(evento) {
@@ -46,6 +47,19 @@ function quandoTeclaPressionada(evento) {
       break;
   }
 }
+
+function quandoTeclaSolta(evento) {
+    switch (evento.key) {
+      case "a":
+        vAngulo = 0;
+        break;
+      case "d":
+        vAngulo = 0;
+        break;
+      default:
+        break;
+    }
+  }
 
 window.setInterval(passo, dt);
 
@@ -74,8 +88,9 @@ function passo() {
     tiro.style.left = `${480/2 - 15/2}px`;
     vTop = -vTiro*Math.sin(angulo/180*Math.PI);
     vLeft = vTiro*Math.cos(angulo/180*Math.PI);
-
   }
+  angulo = angulo + vAngulo*dt;
+  canhao.style.transform = `rotate(${angulo+90}deg)`;
 }
 
 
