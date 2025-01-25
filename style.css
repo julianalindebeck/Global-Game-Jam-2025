@@ -25,3 +25,16 @@ main{
     left: 30px;
 }
 
+.canhao{
+    background: radial-gradient(hsl(24, 78%, 57%), hsl(24, 78%, 45%));
+    width: 20px;
+    height: 45px;
+    display: grid;
+    place-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: calc( 480px/2 - 20px/2 );
+    border-radius: 30% 30% 00% 0%;
+    transform: rotate(45deg);
+    transform-origin: 50% 100%;
+}
