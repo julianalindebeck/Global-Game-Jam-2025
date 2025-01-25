@@ -23,6 +23,8 @@ main {
 
 .tiro {
   background: radial-gradient(hsl(0, 50%, 51%), hsl(0, 66%, 57%));
+  background-image: url("./dodo.png");
+  background-size: contain;
   width: 15px;
   aspect-ratio: 1;
   border-radius: 50%;
