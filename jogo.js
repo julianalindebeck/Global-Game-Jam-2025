@@ -54,15 +54,10 @@ function giraAntiHorario() {
 function quandoTeclaPressionada(evento) {
   switch (evento.key) {
     case "a":
-      if(vAngulo < 60){
-      giraAntiHorario();
-      }
-      else {
-        vAngulo = 60;
-      }
+        giraAntiHorario();
       break;
     case "d":
-      giraHorario();
+        giraHorario();
       break;
     default:
       break;
