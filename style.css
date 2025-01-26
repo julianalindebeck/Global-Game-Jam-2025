@@ -87,12 +87,15 @@ main {
   border-radius: 5px;
 }
 
-#audio {
-  size: 20px;
-  position: absolute;
-  top: 4vh;
-  right: -9%;
-  transform: translateX(-50%) rotate(0deg);
-  z-index: -1;
+dialog {
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
+  background-color: beige;
+  z-index: 2;
+  position: center;
 }
+
+button {
+  background-color: blue;
 }

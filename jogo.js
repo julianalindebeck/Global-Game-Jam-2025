@@ -157,12 +157,5 @@ const contadorTempo = setInterval(() => {
     clearInterval(intervaloJogo);
     clearInterval(contadorTempo);
     jogoAtivo = false;
-    const exit_game = confirm(
-      `Pontuação final: ${pontuacao} \n\nDeseja jogar novamente?`
-    );
-
-    if (exit_game) {
-      location.reload();
-    }
   }
 }, 1000);
