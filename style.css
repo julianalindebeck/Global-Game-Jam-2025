@@ -23,6 +23,7 @@ main {
   display: grid;
   place-content: center;
   position: absolute;
+  z-index: -3;
 }
 
 .tiro {

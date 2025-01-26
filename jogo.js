@@ -54,10 +54,10 @@ function giraAntiHorario() {
 function quandoTeclaPressionada(evento) {
   switch (evento.key) {
     case "a":
-        giraAntiHorario();
+      giraAntiHorario();
       break;
     case "d":
-        giraHorario();
+      giraHorario();
       break;
     default:
       break;
@@ -109,6 +109,12 @@ function passo() {
     vLeft = vTiro * Math.cos((angulo / 180) * Math.PI);
   }
   angulo = angulo + vAngulo * dt;
+  if(angulo > -20){
+    angulo = -20;
+  }
+  if(angulo < -160){
+    angulo = -160;
+  }
   canhao.style.transform = `rotate(${angulo + 90}deg)`;
 
   verificaColisoes();
@@ -130,6 +136,7 @@ function verificaColisoes() {
 function colidiu(a, b) {
   const boxA = a.getBoundingClientRect();
   const boxB = b.getBoundingClientRect();
+  
   return !(
     boxA.bottom < boxB.top ||
     boxA.top > boxB.bottom ||
