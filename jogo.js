@@ -127,7 +127,7 @@ function passo() {
 function verificaColisoes() {
   for (let i = 0; i < bolhas.length; i++) {
     const bolha = bolhas[i];
-    if (tempoRestante>0 && colidiu(bolha, tiro)) {
+    if (tempoRestante > 0 && colidiu(bolha, tiro)) {
       bolha.style.top = `${alturaTela + 50}px`;
       tiro.style.top = `${alturaTela + 50}px`;
       pontuacao += 5;
@@ -165,6 +165,6 @@ const contadorTempo = setInterval(() => {
   }
 }, 1000);
 
-botao.addEventListener("click", function(){
+botao.addEventListener("click", function () {
   location.reload();
-})
+});
