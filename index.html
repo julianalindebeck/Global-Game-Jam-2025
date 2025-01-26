@@ -11,13 +11,24 @@
   <body>
     <main>
       <div class="bolha" id="a"></div>
-      <div class="bolha" id="b"></div>
-      <div class="bolha" id="d"></div>
-      <div class="bolha" id="e"></div>
+      <div class="bolha" id="a"></div>
+      <div class="bolha" id="a"></div>
+      <div class="bolha" id="a"></div>
+      <div class="bolha" id="a"></div>
+      <div class="bolha" id="a"></div>
+      <div class="bolha" id="a"></div>
+      <div class="bolha" id="a"></div>
+      <div class="bolha" id="a"></div>
+      <div id="tempo">60s</div>
       <div class="tiro" id="t"></div>
-      <div class="canhao" id="c"></div>
-      <div class="base"></div>
-      <div class="placar">0</div>
+      <img id="canhao" src="./image.png" alt="Canhão" />
+      <div id="pontuacao">0</div>
     </main>
+
+    <div id="telaFinal" style="display: none">
+      <h1>Fim de Jogo!</h1>
+      <p>Sua pontuação final: <span id="finalScore"></span></p>
+      <button onclick="reiniciarJogo()">Reiniciar</button>
+    </div>
   </body>
 </html>

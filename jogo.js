@@ -1,28 +1,40 @@
-const canhao = document.querySelector("#c");
+const canhao = document.querySelector("#canhao");
 const tiro = document.querySelector("#t");
 const bolhas = document.querySelectorAll(".bolha");
+// Largura e altura da tela
+let larguraTela = window.innerWidth;
+let alturaTela = window.innerHeight;
 
-//inicia elemento
+document.querySelector("main").style.width = `${larguraTela}px`;
+document.querySelector("main").style.height = `${alturaTela}px`;
+
+// Variáveis iniciais
 const dt = 16 / 1000;
 let vAngulo = 0;
 let angulo = -90;
 const vTiro = 100;
-tiro.style.top = "305px";
-tiro.style.left = `${480 / 2 - 15 / 2}px`;
+
+tiroposicaoInicial();
+let tempoRestante = 60;
+let jogoAtivo = true;
+let pontuacao = 0;
 
 let vTop = -vTiro * Math.sin((angulo / 180) * Math.PI);
 let vLeft = vTiro * Math.cos((angulo / 180) * Math.PI);
-debugger;
-for (let i = 0; i < bolhas.length; i++) {
-  const bolha = bolhas[i];
-  let top = -120 + Math.floor(80 * Math.random());
-  let left = Math.floor(440 * Math.random());
-  bolha.style.left = `${left}px`;
-  bolha.style.top = `${top}px`;
+
+// Posição inicial do tiro
+function tiroposicaoInicial() {
+  tiro.style.top = `${alturaTela - 80}px`;
+  tiro.style.left = `${larguraTela / 2 - 15 / 2}px`;
+}
+
+bolhas.forEach((bolha) => inicializarBolha(bolha));
+function inicializarBolha(bolha) {
+  bolha.style.left = `${Math.random() * larguraTela}px`;
+  bolha.style.top = `${-120 + Math.random() * 80}px`;
 }
 
 canhao.style.transform = `rotate(${angulo + 90}deg)`;
-debugger;
 document.addEventListener("keydown", quandoTeclaPressionada);
 document.addEventListener("keyup", quandoTeclaSolta);
 
@@ -67,9 +79,9 @@ function passo() {
     const bolha = bolhas[i];
     let top = parseFloat(bolha.style.top);
     top = top + 50 * dt;
-    if (top > 340) {
+    if (top > alturaTela) {
       top = -120 + Math.floor(80 * Math.random());
-      let left = Math.floor(440 * Math.random());
+      let left = Math.floor(larguraTela * Math.random());
       bolha.style.left = `${left}px`;
     }
     bolha.style.top = `${top}px`;
@@ -82,9 +94,13 @@ function passo() {
   tiroLeft = tiroLeft + vLeft * dt;
   tiro.style.top = `${tiroTop}px`;
   tiro.style.left = `${tiroLeft}px`;
-  if (tiroTop < -15 || tiroTop > 320 || tiroLeft < -15 || tiroLeft > 495) {
-    tiro.style.top = "305px";
-    tiro.style.left = `${480 / 2 - 15 / 2}px`;
+  if (
+    tiroTop < -15 ||
+    tiroTop > alturaTela ||
+    tiroLeft < -15 ||
+    tiroLeft > larguraTela
+  ) {
+    tiroposicaoInicial();
     vTop = -vTiro * Math.sin((angulo / 180) * Math.PI);
     vLeft = vTiro * Math.cos((angulo / 180) * Math.PI);
   }
@@ -98,8 +114,10 @@ function verificaColisoes() {
   for (let i = 0; i < bolhas.length; i++) {
     const bolha = bolhas[i];
     if (colidiu(bolha, tiro)) {
-      bolha.style.top = "350px";
-      tiro.style.top = "350px";
+      bolha.style.top = `${alturaTela + 50}px`;
+      tiro.style.top = `${alturaTela + 50}px`;
+      pontuacao += 5;
+      document.getElementById("pontuacao").innerText = `${pontuacao}`;
     }
   }
 }
@@ -107,13 +125,22 @@ function verificaColisoes() {
 function colidiu(a, b) {
   const boxA = a.getBoundingClientRect();
   const boxB = b.getBoundingClientRect();
-  if (
+  return !(
     boxA.bottom < boxB.top ||
     boxA.top > boxB.bottom ||
     boxA.right < boxB.left ||
     boxA.left > boxB.right
-  ) {
-    return false;
-  }
-  return true;
+  );
 }
+
+const intervaloJogo = setInterval(passo, dt);
+const contadorTempo = setInterval(() => {
+  if (tempoRestante > 0) {
+    tempoRestante--;
+    document.getElementById("tempo").innerText = `${tempoRestante}s`;
+  } else {
+    clearInterval(intervaloJogo);
+    clearInterval(contadorTempo);
+    jogoAtivo = false;
+  }
+}, 1000);

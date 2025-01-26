@@ -1,9 +1,15 @@
 main {
-  background-color: rgb(212, 238, 255);
-  width: 480px;
-  height: 320px;
-  position: relative;
+  background-image: url("https://image.freepik.com/vetores-gratis/ilustracao-de-paisagem-montanha-verao-desenhos-animados-de-fundo-de-paisagem-natural-montanhosa-simples-com-campos-cenicos-de-grama-verde-em-colinas-e-montanhas-no-horizonte-cena-de-natureza-ensolarada-no-verao_213110-517.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .bolha {
@@ -11,7 +17,7 @@ main {
     hsla(0, 0%, 100%, 30%),
     hsla(240, 100%, 70%, 60%)
   );
-  width: 40px;
+  width: 5vw;
   aspect-ratio: 1;
   border-radius: 50%;
   display: grid;
@@ -23,47 +29,60 @@ main {
   background: radial-gradient(hsl(0, 50%, 51%), hsl(0, 66%, 57%));
   background-image: url("./dodo.png");
   background-size: contain;
-  width: 15px;
+  width: 2vw;
   aspect-ratio: 1;
   border-radius: 50%;
   display: grid;
   place-content: center;
   position: absolute;
-  top: 70px;
-  left: calc(480px / 2 - 15px / 2);
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.canhao {
-  background: radial-gradient(hsl(24, 85%, 61%), hsl(24, 78%, 45%));
-  width: 20px;
-  height: 45px;
-  display: grid;
-  place-content: center;
+#canhao {
+  width: 10vw;
+  height: auto;
   position: absolute;
-  bottom: 10px;
-  left: calc(480px / 2 - 20px / 2);
-  border-radius: 30% 30% 00% 0%;
-  transform: rotate(45deg);
-  transform-origin: 50% 100%;
+  bottom: 5vh;
+  left: calc(50% - 7vw);
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: center bottom;
 }
 
-.base {
-  background: radial-gradient(hsl(24, 59%, 48%), hsl(24, 78%, 45%));
-  width: 50px;
-  height: 20px;
-  display: grid;
-  place-content: center;
+#tempo {
   position: absolute;
-  bottom: 1px;
-  left: calc(480px / 2 - 50px / 2);
+  top: 90px;
+  left: 20px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  background-color: rgba(4, 66, 68, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-.placar {
-  width: 50px;
-  height: 20px;
-  display: grid;
-  place-content: center;
+#pontuacao {
   position: absolute;
-  top: 10px;
-  left: calc(480px / 2 - 50px / 2);
+  top: 30px;
+  left: 20px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  background-color: rgba(4, 66, 68, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#telaFinal button {
+  background-color: #4caf50;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#telaFinal button:hover {
+  background-color: #45a049;
 }
