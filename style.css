@@ -88,14 +88,37 @@ main {
 }
 
 dialog {
-  border: 1px solid black;
-  height: 200px;
-  width: 200px;
-  background-color: beige;
+  border: 4px solid #5b4f94;
+  border-radius: 20px;
+  height: 150px;
+  width: 300px;
+  background-color: #50458a93;
   z-index: 2;
-  position: center;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button {
-  background-color: blue;
+  border: 2px solid #5b4f94;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  background-color: rgb(255, 255, 255);
+  margin: 0 auto;
+}
+
+.cred {
+  font-size: 17px;
+  color: white;
+  text-align: center;
+}
+
+.creditos {
+  font-weight: bold;
+  font-size: 17px;
+  color: white;
+  text-align: center;
 }

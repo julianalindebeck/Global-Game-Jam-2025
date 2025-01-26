@@ -2,6 +2,9 @@
 const canhao = document.querySelector("#canhao");
 const tiro = document.querySelector("#t");
 const bolhas = document.querySelectorAll(".bolha");
+const inicio = document.querySelector("#dialog");
+const botao = document.querySelector("#botao");
+inicio.style = "display:none";
 
 // largura e altura da tela
 let larguraTela = window.innerWidth;
@@ -124,7 +127,7 @@ function passo() {
 function verificaColisoes() {
   for (let i = 0; i < bolhas.length; i++) {
     const bolha = bolhas[i];
-    if (colidiu(bolha, tiro)) {
+    if (tempoRestante>0 && colidiu(bolha, tiro)) {
       bolha.style.top = `${alturaTela + 50}px`;
       tiro.style.top = `${alturaTela + 50}px`;
       pontuacao += 5;
@@ -156,6 +159,12 @@ const contadorTempo = setInterval(() => {
   } else {
     clearInterval(intervaloJogo);
     clearInterval(contadorTempo);
+    inicio.style = "display:flex";
+
     jogoAtivo = false;
   }
 }, 1000);
+
+botao.addEventListener("click", function(){
+  location.reload();
+})
