@@ -1,5 +1,5 @@
 main {
-  background-image: url("https://image.freepik.com/vetores-gratis/ilustracao-de-paisagem-montanha-verao-desenhos-animados-de-fundo-de-paisagem-natural-montanhosa-simples-com-campos-cenicos-de-grama-verde-em-colinas-e-montanhas-no-horizonte-cena-de-natureza-ensolarada-no-verao_213110-517.jpg");
+  background-image: url("./back.png");
   background-position: center;
   background-size: cover;
   width: 100vw;
@@ -29,7 +29,7 @@ main {
   background: radial-gradient(hsl(0, 50%, 51%), hsl(0, 66%, 57%));
   background-image: url("./dodo.png");
   background-size: contain;
-  width: 2vw;
+  width: 5vw;
   aspect-ratio: 1;
   border-radius: 50%;
   display: grid;
@@ -40,19 +40,30 @@ main {
   transform: translateX(-50%);
 }
 
-#canhao {
-  width: 10vw;
+#base {
+  width: 8vw;
   height: auto;
   position: absolute;
-  bottom: 5vh;
-  left: calc(50% - 7vw);
-  transform: translateX(-50%) rotate(0deg);
+  bottom: 0;
+  left: calc(50% - 4vw);
   transform-origin: center bottom;
+  z-index: 0;
+}
+
+#canhao {
+  width: 8vw;
+  height: auto;
+  position: absolute;
+  bottom: 3vh;
+  left: calc(50% - 4vw);
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: center 80%;
+  z-index: 1;
 }
 
 #tempo {
   position: absolute;
-  top: 90px;
+  top: 65px;
   left: 20px;
   font-size: 24px;
   color: #fff;
@@ -64,7 +75,7 @@ main {
 
 #pontuacao {
   position: absolute;
-  top: 30px;
+  top: 20px;
   left: 20px;
   font-size: 24px;
   color: #fff;
@@ -72,17 +83,4 @@ main {
   background-color: rgba(4, 66, 68, 0.5);
   padding: 5px 10px;
   border-radius: 5px;
-}
-
-#telaFinal button {
-  background-color: #4caf50;
-  border: none;
-  padding: 10px 20px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#telaFinal button:hover {
-  background-color: #45a049;
 }

@@ -1,47 +1,52 @@
+// procura document
 const canhao = document.querySelector("#canhao");
 const tiro = document.querySelector("#t");
 const bolhas = document.querySelectorAll(".bolha");
-// Largura e altura da tela
+
+// largura e altura da tela
 let larguraTela = window.innerWidth;
 let alturaTela = window.innerHeight;
-
 document.querySelector("main").style.width = `${larguraTela}px`;
 document.querySelector("main").style.height = `${alturaTela}px`;
 
-// Variáveis iniciais
+// variáveis iniciais
 const dt = 16 / 1000;
 let vAngulo = 0;
 let angulo = -90;
 const vTiro = 100;
 
-tiroposicaoInicial();
+// declaração tempo, pontuação, bool jogo ativo
 let tempoRestante = 60;
-let jogoAtivo = true;
 let pontuacao = 0;
+let jogoAtivo = true;
+
+tiroposicaoInicial();
 
 let vTop = -vTiro * Math.sin((angulo / 180) * Math.PI);
 let vLeft = vTiro * Math.cos((angulo / 180) * Math.PI);
 
-// Posição inicial do tiro
+// posição inicial do tiro
 function tiroposicaoInicial() {
   tiro.style.top = `${alturaTela - 80}px`;
   tiro.style.left = `${larguraTela / 2 - 15 / 2}px`;
 }
 
+// iniciando as bolhas
 bolhas.forEach((bolha) => inicializarBolha(bolha));
 function inicializarBolha(bolha) {
   bolha.style.left = `${Math.random() * larguraTela}px`;
   bolha.style.top = `${-120 + Math.random() * 80}px`;
 }
 
+// rotação do canhão
 canhao.style.transform = `rotate(${angulo + 90}deg)`;
 document.addEventListener("keydown", quandoTeclaPressionada);
 document.addEventListener("keyup", quandoTeclaSolta);
 
+// ação para cada tecla do jogador
 function giraHorario() {
   vAngulo = 20;
 }
-
 function giraAntiHorario() {
   vAngulo = -20;
 }
@@ -49,7 +54,12 @@ function giraAntiHorario() {
 function quandoTeclaPressionada(evento) {
   switch (evento.key) {
     case "a":
+      if(vAngulo < 60){
       giraAntiHorario();
+      }
+      else {
+        vAngulo = 60;
+      }
       break;
     case "d":
       giraHorario();
@@ -58,7 +68,6 @@ function quandoTeclaPressionada(evento) {
       break;
   }
 }
-
 function quandoTeclaSolta(evento) {
   switch (evento.key) {
     case "a":
@@ -110,6 +119,7 @@ function passo() {
   verificaColisoes();
 }
 
+// verifica se o dodo colidiu com a bolha
 function verificaColisoes() {
   for (let i = 0; i < bolhas.length; i++) {
     const bolha = bolhas[i];
@@ -117,7 +127,7 @@ function verificaColisoes() {
       bolha.style.top = `${alturaTela + 50}px`;
       tiro.style.top = `${alturaTela + 50}px`;
       pontuacao += 5;
-      document.getElementById("pontuacao").innerText = `${pontuacao}`;
+      document.getElementById("pontuacao").innerText = `🎯 ${pontuacao}`;
     }
   }
 }
@@ -137,10 +147,17 @@ const intervaloJogo = setInterval(passo, dt);
 const contadorTempo = setInterval(() => {
   if (tempoRestante > 0) {
     tempoRestante--;
-    document.getElementById("tempo").innerText = `${tempoRestante}s`;
+    document.getElementById("tempo").innerText = `⏱️ ${tempoRestante}s`;
   } else {
     clearInterval(intervaloJogo);
     clearInterval(contadorTempo);
     jogoAtivo = false;
+    const exit_game = confirm(
+      `Pontuação final: ${pontuacao} \n\nDeseja jogar novamente?`
+    );
+
+    if (exit_game) {
+      location.reload();
+    }
   }
 }, 1000);
